@@ -19,3 +19,8 @@ body {
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   color: var(--text-primary);
 }
+
+.my-btn {
+  width: 150px;
+  background-color: #0d49c0;
+}
