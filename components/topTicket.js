@@ -1,4 +1,4 @@
-export const firstLineTicket = () => {
+export const topTicket = () => {
   const element = document.createElement('div');
   element.classList.add('first-line');
 

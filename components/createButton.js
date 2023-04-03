@@ -1,6 +1,6 @@
 export const createButton = (options) => {
   const button = document.createElement('button');
   button.classList.add('my-btn');
-  button.innerText = options.title;
+  button.innerText = options;
   return button;
 };
