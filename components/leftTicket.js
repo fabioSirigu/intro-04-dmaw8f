@@ -1,18 +1,18 @@
-import { flights } from './data';
+import { flights } from '../data';
+import { textMuted } from './textMuted.js';
+import { createCompany } from './createCompany.js';
+import { createLogo } from './createLogo.js';
 
-import { setCompany } from './components/setCompany.js';
-import { setLogo } from './components/setLogo.js';
-import { textMuted } from './components/textMuted.js';
-
-const companyName = setCompany(flights[1].companyName);
-const logo = setLogo(flights[1].companyLogo);
 const aircraftType = textMuted(flights[1].aircraftType);
+const companyName = createCompany(flights[1].companyName);
+const logo = createLogo(flights[1].companyLogo);
 
+const divRight = document.createElement('div');
+divRight.append(companyName, aircraftType);
 
 export const leftTicket = () => {
-  let element = document.createElement('div');
+  const element = document.createElement('div');
   element.classList.add('d-flex');
+  element.append(logo, divRight);
   return element;
 };
-
-
