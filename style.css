@@ -36,3 +36,19 @@ body {
 .muted {
   color: gray;
 }
+
+.logo {
+  width: 50px;
+  border-radius: 50%;
+}
+
+.first-line {
+  display: flex;
+  padding: 1rem;
+  border-bottom: 2px solid lightgray;
+}
+
+.d-flex {
+  display: flex;
+  gap: 1rem;
+}
