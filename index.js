@@ -15,25 +15,11 @@ import { bottomTicket } from './components/bottomTicket.js';
 
 let appDiv = document.getElementById('app');
 
-const rowTicket = document.createElement('div');
-rowTicket.classList.add('row');
-appDiv.appendChild(rowTicket);
-
-const title = 'Book Now';
-
-/* const ticketTop = topTicket();
-const ticketBottom = bottomTicket(flightClass, passengers);
-const left = leftTicket();
-const right = rightTicket();
-const central = centralTicket(); */
-
-//ticketTop.append(left, central, right);
-//left.append(logo, companyName);
-//rowTicket.append(ticketTop, ticketBottom);
-
+//generateRows
 for (let i = 0; i < flights.length; i++) {
   const singleFlight = flights[i];
   //info variables
+  const title = 'Book Now';
   const button = createButton(title);
   const price = createPrice(singleFlight.price);
   const depTimes = createTimes(singleFlight.departureTime);
@@ -50,9 +36,17 @@ for (let i = 0; i < flights.length; i++) {
   const ticketBottom = bottomTicket(flightClass, passengers);
   const left = leftTicket(logo, aircraftType, name);
   const right = rightTicket(price, button);
-  const central = centralTicket(depTimes, arrTimes, airportDep, airportArr);
+  const central = centralTicket(
+    depTimes,
+    arrTimes,
+    airportDep,
+    airportArr,
+    flights
+  );
 
   ticketTop.append(left, central, right);
-  //left.append(logo, companyName);
+  const rowTicket = document.createElement('div');
+  rowTicket.classList.add('row');
   rowTicket.append(ticketTop, ticketBottom);
+  appDiv.append(rowTicket);
 }
