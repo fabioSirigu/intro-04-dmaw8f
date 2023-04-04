@@ -35,8 +35,8 @@ for (let i = 0; i < flights.length; i++) {
   button.classList.add('bookNow');
   button.addEventListener('click', function () {
     const keyValues = Object.entries(singleFlight);
-    addCart(i, keyValues);
-    //console.log(i, keyValues);
+    addCart(keyValues);
+    //console.log(keyValues);
     //return keyValues;
   });
 

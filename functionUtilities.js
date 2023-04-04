@@ -5,6 +5,8 @@ export const total = (price1, price2) => {
 };
 //click del button "Book Now"
 
-export const addCart = (i, array) => {
-  console.log(i, array);
+export const addCart = (array) => {
+  const newArray = [];
+  newArray.push(array);
+  console.log('new', newArray);
 };

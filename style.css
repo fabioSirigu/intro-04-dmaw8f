@@ -22,26 +22,32 @@ body {
 }
 #app {
   width: 100%;
+  padding: 2rem 0;
   display: flex;
   justify-content: center;
   gap: 1rem;
 }
 .container {
   width: 80%;
+  height: 100%;
+  margin: 2rem 0;
 }
 .row {
   width: 100%;
-
   box-shadow: 0px 0px 20px 4px #a7a7a7;
   border-radius: 12px;
   padding: 0.75rem 0;
-  margin-bottom: 3rem;
+  margin-bottom: 0.7rem;
+  transition: 0.4s;
+}
+.row:hover {
+  box-shadow: 0px 0px 20px 4px #94a6ac;
 }
 .bottomTicket {
   display: flex;
   padding-right: 1rem;
   gap: 1.5rem;
-  padding-top: 1rem;
+  padding-top: 0.5rem;
   justify-content: end;
 }
 .rightTicket {
@@ -55,9 +61,11 @@ body {
   border: none;
   box-shadow: 1px 1px 5px 1px;
   background-color: #0d49c0;
+  transition: 0.4s;
 }
 .my-btn:hover {
   cursor: pointer;
+  scale: 0.95;
 }
 
 .bolder {
@@ -89,7 +97,8 @@ body {
 /* #region basket */
 .basket {
   width: 20%;
-  border: 1px solid;
+  border-radius: 12px;
+  background-color: var(--background-color);
 }
 
 .totalContainer {
@@ -98,6 +107,7 @@ body {
   justify-content: space-between;
   background-color: var(--primary-color);
   color: var(--text-light);
+  border-radius: 12px 12px 0px 0px;
 }
 
 .singleTicket {

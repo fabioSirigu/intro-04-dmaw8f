@@ -1,4 +1,3 @@
-
 export const totalSection = (total) => {
   const topContainer = document.createElement('div');
   topContainer.classList.add('totalContainer', 'd-flex');
