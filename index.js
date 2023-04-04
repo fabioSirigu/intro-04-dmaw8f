@@ -33,12 +33,16 @@ for (const singleFlight of flights) {
   button.classList.add('bookNow');
   button.addEventListener('click', function () {
     addToCart(singleFlight);
+
+    button.setAttribute('disabled', true);
+    button.classList.add('selected');
     //console.log(keyValues);
     //return keyValues;
   });
 
   const price = createPrice(singleFlight.price);
   const depTimes = createTimes(singleFlight.departureTime);
+
   const arrTimes = createTimes(singleFlight.arrivalTime);
   const airportDep = textMuted(singleFlight.departureAirport);
   const airportArr = textMuted(singleFlight.arrivalAirport);

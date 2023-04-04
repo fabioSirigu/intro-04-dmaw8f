@@ -25,6 +25,7 @@ export const singleTicket = ({
   //top right
   const rightTicketTop = document.createElement('div');
   rightTicketTop.classList.add('delete');
+  rightTicketTop.setAttribute('id', 'delete');
   rightTicketTop.innerText = 'X';
   //bottom right
   const rightTicketBottom = document.createElement('div');
