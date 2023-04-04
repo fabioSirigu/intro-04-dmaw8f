@@ -3,22 +3,29 @@ export const total = (price1, price2) => {
   const sum = price1 + price2;
   return sum;
 };
+
 //click del button "Book Now"
 import { singleTicket } from './components/basket/singleTicket.js';
 
-export const addCart = (obj) => {
-  const list = document.getElementById('listBasket');
-  const totalPrice = document.getElementById('total');
+const newList = {
+  item: [],
+};
 
-  if (obj) {
-    console.log(totalPrice);
-    const arrAir = obj.arrivalAirport;
-    const depAir = obj.departureAirport;
-    const timeArr = obj.departureTime;
-    const timeDep = obj.arrivalTime;
-    const priceTicket = obj.price;
-    const single = singleTicket(depAir, arrAir, timeDep, timeArr, priceTicket);
+export const addToCart = (obj) => {
+  // update newList
+  //newList.item.push(obj);
+  // refresh UI
+
+  //const totalPrice = document.getElementById('total');
+  const list = document.getElementById('listBasket');
+
+  const single = singleTicket(obj);
+  //console.log(single);
+  if (newList.item.length < 2) {
+    console.log(newList.item.length);
+    newList.item.push(obj);
     list.append(single);
-    console.log(list);
   }
+
+  console.log(newList.item);
 };

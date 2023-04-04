@@ -1,4 +1,10 @@
-export const singleTicket = (airDep, airArr, timeDep, timeArr, price) => {
+export const singleTicket = ({
+  departureAirport,
+  arrivalAirport,
+  departureTime,
+  arrivalTime,
+  price,
+}) => {
   const ticketEl = document.createElement('div');
   ticketEl.classList.add('singleTicket', 'd-flex');
   ticketEl.setAttribute('id', 'singleTicket');
@@ -7,11 +13,11 @@ export const singleTicket = (airDep, airArr, timeDep, timeArr, price) => {
   //top left
   const leftTicketTop = document.createElement('div');
   leftTicketTop.classList.add('bolder');
-  leftTicketTop.append(`${airDep} -> ${airArr}`);
+  leftTicketTop.append(`${departureAirport} -> ${arrivalAirport}`);
   //bottom left
   const leftTicketBottom = document.createElement('div');
   leftTicketBottom.classList.add('muted');
-  leftTicketBottom.append(`${timeDep} - ${timeArr}`);
+  leftTicketBottom.append(`${departureTime} - ${arrivalTime}`);
   //append top-bottom
   leftContainer.append(leftTicketTop, leftTicketBottom);
   //right container

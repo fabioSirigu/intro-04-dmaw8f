@@ -18,8 +18,7 @@ import { bottomTicket } from './components/tickets/bottomTicket.js';
 import { basket } from './components/basket/basket.js';
 const basketTot = basket();
 //import function
-import { addCart } from './functionUtilities.js';
-const add = addCart();
+import { addToCart } from './functionUtilities.js';
 
 let appDiv = document.getElementById('app');
 
@@ -27,15 +26,13 @@ let appDiv = document.getElementById('app');
 const container = document.createElement('container');
 
 //generateRows
-for (let i = 0; i < flights.length; i++) {
-  const singleFlight = flights[i];
+for (const singleFlight of flights) {
   //info variables
   const title = 'Book Now';
   const button = createButton(title);
   button.classList.add('bookNow');
   button.addEventListener('click', function () {
-    const keyValues = singleFlight;
-    addCart(keyValues);
+    addToCart(singleFlight);
     //console.log(keyValues);
     //return keyValues;
   });
