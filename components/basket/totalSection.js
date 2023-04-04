@@ -1,4 +1,4 @@
-export const totalSection = (total) => {
+export const totalSection = () => {
   const topContainer = document.createElement('div');
   topContainer.classList.add('totalContainer', 'd-flex');
   //left
@@ -9,8 +9,8 @@ export const totalSection = (total) => {
   //right container
   const rightTotal = document.createElement('div');
   rightTotal.classList.add('bolder');
-  rightTotal.classList.add('id', 'total');
-  rightTotal.append(`€ ${total}`);
+  rightTotal.setAttribute('id', 'total');
+  rightTotal.innerText = 0;
 
   //append left-right
   topContainer.append(leftTotal, rightTotal);

@@ -11,13 +11,13 @@ export const addCart = (obj) => {
   const totalPrice = document.getElementById('total');
 
   if (obj) {
+    console.log(totalPrice);
     const arrAir = obj.arrivalAirport;
     const depAir = obj.departureAirport;
     const timeArr = obj.departureTime;
     const timeDep = obj.arrivalTime;
     const priceTicket = obj.price;
     const single = singleTicket(depAir, arrAir, timeDep, timeArr, priceTicket);
-
     list.append(single);
     console.log(list);
   }
