@@ -9,6 +9,7 @@ export const totalSection = (total) => {
   //right container
   const rightTotal = document.createElement('div');
   rightTotal.classList.add('bolder');
+  rightTotal.classList.add('id', 'total');
   rightTotal.append(`€ ${total}`);
 
   //append left-right

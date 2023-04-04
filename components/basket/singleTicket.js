@@ -1,6 +1,7 @@
 export const singleTicket = (airDep, airArr, timeDep, timeArr, price) => {
   const ticketEl = document.createElement('div');
   ticketEl.classList.add('singleTicket', 'd-flex');
+  ticketEl.setAttribute('id', 'singleTicket');
   //left container
   const leftContainer = document.createElement('div');
   //top left
