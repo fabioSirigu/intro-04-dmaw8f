@@ -67,7 +67,7 @@ body {
 
 .selected {
   cursor: not-allowed;
-  filter: grayscale(0.8);
+  filter: grayscale(0.2);
 }
 .bordered {
   border: 2px solid var(--primary-color);
@@ -85,6 +85,17 @@ body {
   width: 50px;
   border-radius: 50%;
 }
+.borderTratt {
+  border-bottom: var(--primary-color);
+  border-bottom-style: dashed;
+}
+
+.deleteBtn {
+  border: none;
+  color: var(--danger);
+  background-color: transparent;
+  cursor: pointer;
+}
 
 .first-line {
   display: flex;
@@ -97,6 +108,11 @@ body {
 .d-flex {
   display: flex;
   gap: 1rem;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
 }
 
 /* #region basket */

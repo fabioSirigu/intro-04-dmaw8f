@@ -1,3 +1,4 @@
+import { removeTicket } from '../../functionUtilities.js';
 export const singleTicket = ({
   departureAirport,
   arrivalAirport,
@@ -26,7 +27,13 @@ export const singleTicket = ({
   const rightTicketTop = document.createElement('div');
   rightTicketTop.classList.add('delete');
   rightTicketTop.setAttribute('id', 'delete');
-  rightTicketTop.innerText = 'X';
+  const button = document.createElement('button');
+  button.classList.add('deleteBtn');
+  button.innerText = 'X';
+  button.addEventListener('click', function () {
+    removeTicket();
+  });
+  rightTicketTop.append(button);
   //bottom right
   const rightTicketBottom = document.createElement('div');
 

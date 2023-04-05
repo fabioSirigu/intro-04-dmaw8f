@@ -1,52 +1,43 @@
 import { singleTicket } from './components/basket/singleTicket.js';
 
-const newList = {
-  item: [],
-};
+const newList = [];
 
 export const addToCart = (obj) => {
-  const totalPrice = document.getElementById('total');
-  const list = document.getElementById('listBasket');
-
-  const single = singleTicket(obj);
-  //console.log(single);
-  if (newList.item.length < 2) {
-    console.log(newList.item.length);
-    newList.item.push(obj);
-    list.append(newList.item);
+  if (newList.length < 2) {
+    newList.push(obj);
   }
+
+  refreshList(newList);
   // Calcola il prezzo totale del carrello
+  const totalPrice = document.getElementById('total');
+
   let cartTotal = 0;
-  newList.item.forEach((item) => {
+  newList.forEach((item) => {
     cartTotal += item.price;
   });
 
   // Aggiorna il prezzo totale nel carrello
   totalPrice.textContent = `€ ${cartTotal.toFixed(2)}`;
-
-  console.log(newList.item);
 };
 
-//time to string per il tempo di volo
-/* export const calcTravelTime = (depart, arriv) => {
-  const dep = parseFloat(depart);
-  const arr = parseFloat(arriv);
+//refresh list
+function refreshList(array) {
+  const list = document.getElementById('listBasket');
+  list.innerHTML = '';
+  for (const item of array) {
+    const single = singleTicket(item);
+    list.appendChild(single);
+  }
+}
 
-  const time = (arr - dep).toFixed(2);
+//time travel
+export const calcTravelTime = (timeToString) => {
+  const [hours, minutes] = timeToString.toString().split(':');
+  return (parseInt(hours) * 60 + parseInt(minutes)) * 60 * 1000;
+};
 
-  return time;
-}; */
-
-/* export const removeTicket = (index) => {
-  // Rimuovi l'elemento dal carrello
-  newList.item.splice(index, 1);
-
-  // Aggiorna il prezzo totale del carrello
-  let cartTotal = 0;
-  newList.item.forEach((item) => {
-    cartTotal += item.price;
-  });
-  const totalPrice = document.getElementById('total');
-
-  totalPrice.textContent = cartTotal.toFixed(2);
-}; */
+//remove item
+export const removeTicket = () => {
+  const list = document.getElementById('listBasket');
+  list.innerHTML = '';
+};

@@ -5,7 +5,6 @@ import { createButton } from './components/utilities/createButton.js';
 import { textMuted } from './components/utilities/textMuted.js';
 //tickets info
 import { createPrice } from './components/tickets/createPrice.js';
-import { createTimes } from './components/tickets/createTimes.js';
 import { createPassenger } from './components/tickets/createPassenger.js';
 import { createCompany } from './components/tickets/createCompany.js';
 import { createLogo } from './components/tickets/createLogo.js';
@@ -30,23 +29,19 @@ for (const singleFlight of flights) {
   //info variables
   const rowTicket = document.createElement('div');
   rowTicket.classList.add('row');
-  const title = 'Book Now';
+  let title = 'Book Now';
   const button = createButton(title);
   button.classList.add('bookNow');
+
   button.addEventListener('click', function () {
     addToCart(singleFlight);
-
     button.setAttribute('disabled', true);
     button.classList.add('selected');
     rowTicket.classList.add('bordered');
   });
 
   const price = createPrice(singleFlight.price);
-  const depTimes = createTimes(singleFlight.departureTime);
 
-  const arrTimes = createTimes(singleFlight.arrivalTime);
-  const airportDep = textMuted(singleFlight.departureAirport);
-  const airportArr = textMuted(singleFlight.arrivalAirport);
   const aircraftType = textMuted(singleFlight.aircraftType);
   const flightClass = textMuted(singleFlight.flightClass);
   const passengers = createPassenger(singleFlight.passengers);
@@ -57,13 +52,7 @@ for (const singleFlight of flights) {
   const ticketBottom = bottomTicket(flightClass, passengers);
   const left = leftTicket(logo, aircraftType, name);
   const right = rightTicket(price, button);
-  const central = centralTicket(
-    depTimes,
-    arrTimes,
-    airportDep,
-    airportArr,
-    flights
-  );
+  const central = centralTicket(singleFlight);
 
   ticketTop.append(left, central, right);
   rowTicket.append(ticketTop, ticketBottom);
