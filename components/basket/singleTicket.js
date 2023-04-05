@@ -31,7 +31,7 @@ export const singleTicket = ({
   button.classList.add('deleteBtn');
   button.innerText = 'X';
   button.addEventListener('click', function () {
-    removeTicket();
+    removeTicket(`${departureAirport}-${arrivalAirport}`);
   });
   rightTicketTop.append(button);
   //bottom right

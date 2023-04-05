@@ -1,33 +1,52 @@
 import { singleTicket } from './components/basket/singleTicket.js';
 
-const newList = [];
+const state = {
+  newList: [],
+};
+
+//prendo lo stato attuale di newList
+export const getListState = () => {
+  return state.newList;
+};
 
 export const addToCart = (obj) => {
-  if (newList.length < 2) {
-    newList.push(obj);
+  if (state.newList.length < 2) {
+    state.newList.push({
+      ...obj,
+      id: `${obj.departureAirport}-${obj.arrivalAirport}`,
+    });
   }
+  console.log(obj);
 
-  refreshList(newList);
+  refreshUICart();
   // Calcola il prezzo totale del carrello
-  const totalPrice = document.getElementById('total');
+  /*   const totalPrice = document.getElementById('total');
 
   let cartTotal = 0;
-  newList.forEach((item) => {
+  state.newList.forEach((item) => {
     cartTotal += item.price;
   });
 
   // Aggiorna il prezzo totale nel carrello
-  totalPrice.textContent = `€ ${cartTotal.toFixed(2)}`;
+  totalPrice.textContent = `€ ${cartTotal.toFixed(2)}`; */
 };
 
 //refresh list
-function refreshList(array) {
+function refreshUICart() {
+  const items = getListState();
   const list = document.getElementById('listBasket');
+  const totalPrice = document.getElementById('total');
   list.innerHTML = '';
-  for (const item of array) {
+  let cartTotal = 0;
+  for (const item of items) {
     const single = singleTicket(item);
-    list.appendChild(single);
+    list.append(single);
+
+    cartTotal += item.price;
+
+    // Aggiorna il prezzo totale nel carrello
   }
+  totalPrice.textContent = `€ ${cartTotal.toFixed(2)}`;
 }
 
 //time travel
@@ -37,7 +56,7 @@ export const calcTravelTime = (timeToString) => {
 };
 
 //remove item
-export const removeTicket = () => {
-  const list = document.getElementById('listBasket');
-  list.innerHTML = '';
+export const removeTicket = (ticketId) => {
+  state.newList = state.newList.filter(({ id }) => id !== ticketId);
+  refreshUICart();
 };
