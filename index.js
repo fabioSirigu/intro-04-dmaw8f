@@ -28,6 +28,8 @@ const container = document.createElement('container');
 //generateRows
 for (const singleFlight of flights) {
   //info variables
+  const rowTicket = document.createElement('div');
+  rowTicket.classList.add('row');
   const title = 'Book Now';
   const button = createButton(title);
   button.classList.add('bookNow');
@@ -36,8 +38,7 @@ for (const singleFlight of flights) {
 
     button.setAttribute('disabled', true);
     button.classList.add('selected');
-    //console.log(keyValues);
-    //return keyValues;
+    rowTicket.classList.add('bordered');
   });
 
   const price = createPrice(singleFlight.price);
@@ -65,8 +66,6 @@ for (const singleFlight of flights) {
   );
 
   ticketTop.append(left, central, right);
-  const rowTicket = document.createElement('div');
-  rowTicket.classList.add('row');
   rowTicket.append(ticketTop, ticketBottom);
 
   container.append(rowTicket);

@@ -13,7 +13,7 @@ export const addToCart = (obj) => {
   if (newList.item.length < 2) {
     console.log(newList.item.length);
     newList.item.push(obj);
-    list.append(single);
+    list.append(newList.item);
   }
   // Calcola il prezzo totale del carrello
   let cartTotal = 0;
@@ -28,13 +28,13 @@ export const addToCart = (obj) => {
 };
 
 //time to string per il tempo di volo
-/* export const calcTravelTime = (departure, arrival) => {
-  const dep = parseFloat(departure.replace(':', '.'));
-  const arr = parseFloat(arrival.replace(':', '.'));
+/* export const calcTravelTime = (depart, arriv) => {
+  const dep = parseFloat(depart);
+  const arr = parseFloat(arriv);
 
-  const traveltime = String((arr - dep).toFixed(2));
-  const splicedTime = traveltime.split('.');
-  return { hours: splicedTime[0], minutes: splicedTime[1] };
+  const time = (arr - dep).toFixed(2);
+
+  return time;
 }; */
 
 /* export const removeTicket = (index) => {

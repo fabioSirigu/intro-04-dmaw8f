@@ -1,9 +1,9 @@
 import { calcTravelTime } from '../../functionUtilities.js';
 export const centralTicket = (
-  departureAirport,
-  arrivalAirport,
   departureTime,
-  arrivalTime
+  arrivalTime,
+  departureAirport,
+  arrivalAirport
 ) => {
   const element = document.createElement('div');
   element.classList.add('d-flex');
@@ -12,7 +12,7 @@ export const centralTicket = (
   divLeft.append(departureTime, arrivalAirport);
 
   const divCenter = document.createElement('div');
-  divCenter.innerText = '1:40'; //calcTravelTime(departureTime, arrivalTime);
+  divCenter.innerText = '1.40'; //calcTravelTime(departureTime, arrivalTime);
 
   const divRight = document.createElement('div');
   divRight.append(arrivalTime, departureAirport);
