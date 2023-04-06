@@ -1,4 +1,7 @@
 import { flights } from './data';
+//import state list
+import { getListState } from './functionUtilities.js';
+const newList = getListState();
 import './style.css';
 //utilities
 import { createButton } from './components/utilities/createButton.js';

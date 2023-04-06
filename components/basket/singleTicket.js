@@ -14,7 +14,7 @@ export const singleTicket = ({
   //top left
   const leftTicketTop = document.createElement('div');
   leftTicketTop.classList.add('bolder');
-  leftTicketTop.append(`${departureAirport} -> ${arrivalAirport}`);
+  leftTicketTop.append(`${departureAirport} 🛫 ${arrivalAirport}`);
   //bottom left
   const leftTicketBottom = document.createElement('div');
   leftTicketBottom.classList.add('muted');
@@ -29,7 +29,7 @@ export const singleTicket = ({
   rightTicketTop.setAttribute('id', 'delete');
   const button = document.createElement('button');
   button.classList.add('deleteBtn');
-  button.innerText = 'X';
+  button.innerText = '❌';
   button.addEventListener('click', function () {
     removeTicket(`${departureAirport}-${arrivalAirport}`);
     let selected = document.getElementById(`${price}`);
