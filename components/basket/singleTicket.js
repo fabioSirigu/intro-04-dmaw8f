@@ -8,7 +8,7 @@ export const singleTicket = ({
 }) => {
   const ticketEl = document.createElement('div');
   ticketEl.classList.add('singleTicket', 'd-flex');
-  ticketEl.setAttribute('id', 'singleTicket');
+
   //left container
   const leftContainer = document.createElement('div');
   //top left
@@ -32,6 +32,11 @@ export const singleTicket = ({
   button.innerText = 'X';
   button.addEventListener('click', function () {
     removeTicket(`${departureAirport}-${arrivalAirport}`);
+    let selected = document.getElementById(`${price}`);
+    selected.classList.remove('selected');
+    let myBtn = document.querySelector('.my-btn');
+    myBtn.removeAttribute('disabled');
+    myBtn.innerHTML = 'Book Now';
   });
   rightTicketTop.append(button);
   //bottom right

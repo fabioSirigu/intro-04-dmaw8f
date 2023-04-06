@@ -10,6 +10,8 @@ export const getListState = () => {
 };
 
 export const addToCart = (obj) => {
+  //change name button
+
   if (state.newList.length < 2) {
     state.newList.push({
       ...obj,
@@ -19,16 +21,6 @@ export const addToCart = (obj) => {
   console.log(obj);
 
   refreshUICart();
-  // Calcola il prezzo totale del carrello
-  /*   const totalPrice = document.getElementById('total');
-
-  let cartTotal = 0;
-  state.newList.forEach((item) => {
-    cartTotal += item.price;
-  });
-
-  // Aggiorna il prezzo totale nel carrello
-  totalPrice.textContent = `€ ${cartTotal.toFixed(2)}`; */
 };
 
 //refresh list
@@ -37,14 +29,14 @@ function refreshUICart() {
   const list = document.getElementById('listBasket');
   const totalPrice = document.getElementById('total');
   list.innerHTML = '';
+  //il prezzo parte da zero e viene aggiornato quando ci sono elementi
   let cartTotal = 0;
   for (const item of items) {
     const single = singleTicket(item);
     list.append(single);
 
-    cartTotal += item.price;
-
     // Aggiorna il prezzo totale nel carrello
+    cartTotal += item.price;
   }
   totalPrice.textContent = `€ ${cartTotal.toFixed(2)}`;
 }
@@ -58,5 +50,6 @@ export const calcTravelTime = (timeToString) => {
 //remove item
 export const removeTicket = (ticketId) => {
   state.newList = state.newList.filter(({ id }) => id !== ticketId);
+
   refreshUICart();
 };

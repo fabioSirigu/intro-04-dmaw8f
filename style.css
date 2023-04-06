@@ -56,21 +56,24 @@ body {
 }
 .my-btn {
   color: white;
+  width: 120px;
   padding: 0.3rem 0.7rem;
   border-radius: 5px;
   border: none;
+  text-align: center;
   box-shadow: 1px 1px 5px 1px;
   background-color: #0d49c0;
   transition: 0.4s;
+  opacity: 1;
   cursor: pointer;
 }
 
-.selected {
-  cursor: not-allowed;
-  filter: grayscale(0.2);
-}
-.bordered {
+.row.selected {
   border: 2px solid var(--primary-color);
+}
+.row.selected .my-btn {
+  cursor: not-allowed;
+  opacity: 0.2;
 }
 
 .bolder {
@@ -86,7 +89,7 @@ body {
   border-radius: 50%;
 }
 .borderTratt {
-  border-bottom: var(--primary-color);
+  border-bottom: 1px solid #0d49c0;
   border-bottom-style: dashed;
 }
 

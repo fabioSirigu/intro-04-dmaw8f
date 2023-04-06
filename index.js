@@ -29,24 +29,24 @@ for (const singleFlight of flights) {
   //info variables
   const rowTicket = document.createElement('div');
   rowTicket.classList.add('row');
-  let title = 'Book Now';
-  const button = createButton(title);
-  button.classList.add('bookNow');
+  rowTicket.setAttribute('id', `${singleFlight.price}`);
+
+  let button = createButton('Book Now');
 
   button.addEventListener('click', function () {
-    addToCart(singleFlight);
+    button.innerHTML = 'Booked';
     button.setAttribute('disabled', true);
-    button.classList.add('selected');
-    rowTicket.classList.add('bordered');
+    addToCart(singleFlight);
+    rowTicket.classList.add('selected');
   });
 
   const price = createPrice(singleFlight.price);
-
   const aircraftType = textMuted(singleFlight.aircraftType);
   const flightClass = textMuted(singleFlight.flightClass);
   const passengers = createPassenger(singleFlight.passengers);
   const name = createCompany(singleFlight.companyName);
   const logo = createLogo(singleFlight.companyLogo);
+
   //ticket assembl
   const ticketTop = topTicket();
   const ticketBottom = bottomTicket(flightClass, passengers);
