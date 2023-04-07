@@ -17,6 +17,8 @@ export const addToCart = (obj) => {
       ...obj,
       id: `${obj.departureAirport}-${obj.arrivalAirport}`,
     });
+  } else {
+    alert('xxx');
   }
   console.log(obj);
 
